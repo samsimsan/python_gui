@@ -1,0 +1,6 @@
+to convert the file from .ui to .py
+
+save the gui file in some place. go to that directory and open the cmd there
+then type the command  :  pyuic5 -x <name of ui file>.ui -o <name you want the new python file to have>.py
+once you type enter the file should be created in that dir
+open it in a editor and add the functionalities

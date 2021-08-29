@@ -1,0 +1,66 @@
+%matplotlib
+
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+import random
+import math
+
+pi = math.pi
+#function to update the deques values
+# --removes the last values of the deque with new ones
+count = 0
+def my_function(i):
+    global count
+    # gets the data   
+    #cpu.pop()
+    #ram.pop()
+    cpu.append(math.sin(pi*count/10))
+    ram.append(10*math.sin(pi*count/5)*(5*math.sin(pi*count/100)))
+    count += 1
+    
+    # clear the axis
+    ax.cla()
+    ax1.cla()
+    
+    # plot the cpu:
+    ax.plot(cpu)
+    # plt.title('cpu')
+    # plt.xlabel('this')
+    ax.scatter(len(cpu)-1, cpu[-1])
+    ax.text(len(cpu)-1, cpu[-1]+2, "{}%".format(cpu[-1]))    
+    ax.set_xlim(count-100, count+100)
+    ax.set_ylim(-10,10)
+    
+    # plot the memory:
+    ax1.plot(ram)
+    ax1.scatter(len(ram)-1, ram[-1])
+    ax1.text(len(ram)-1, ram[-1]+2, "{}%".format(ram[-1]))
+    # ax1.set_xlim(0,(count*2))
+    ax1.set_xlim(count-100, count+100)
+    ax1.set_ylim(-100,100)
+    
+    
+# start the collections with zeros
+cpu = [] #collections.deque(np.zeros(10))
+ram = [] #collections.deque(np.zeros(10))
+    
+#to define and adjust the figure
+fig = plt.figure(figsize=(12,6), facecolor='#DEDEDE')
+ax = plt.subplot(121)
+ax1 = plt.subplot(122)
+ax1.set_title('First Plot')
+ax.set_facecolor('#DEDEDE')
+ax1.set_facecolor('#DEDEDE')
+
+# animate
+ani = FuncAnimation(fig, my_function, interval=100)
+
+plt.show()
+
+# test:
+# my_function()
+# my_function()
+# my_function()
+# plt.show()
+
+

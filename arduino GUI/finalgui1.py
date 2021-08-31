@@ -139,7 +139,7 @@ class Ui_MainWindow(object):
         # connecting to the arduino:
         self.B_connect.clicked.connect(self.arduinoConnect)
         self.pushButton.clicked.connect(self.ardclose)
-        self.B_begin.clicked.connect(self.bringVals)
+        self.B_begin.clicked.connect(self.senderfunc)
 
 #----------------------------------------------------------------------------------
     def arduinoConnect(self):
